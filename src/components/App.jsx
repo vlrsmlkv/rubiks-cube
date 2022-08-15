@@ -24,7 +24,6 @@ const App = () => {
   const [isRotating, setIsRotating] = useState(false);
   
   const panelButtonClickHandler = (degree, axis, axisLevel) => {
-    console.log(degree, axis, axisLevel)
     if (!isRotating) {
       setRotationAxis(axis);
       setRotationAxisLevel(axisLevel);

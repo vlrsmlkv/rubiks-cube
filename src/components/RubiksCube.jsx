@@ -88,7 +88,7 @@ const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, is
           )
         )}
       </mesh>
-      <OrbitControls />
+      <OrbitControls enablePan={false} zoomSpeed={0.7} maxDistance={36} minDistance={12} />
     </>
   )
 };

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import { Button } from 'antd';
+
 import { Canvas } from "@react-three/fiber";
 
 import RubiksCube from "./RubiksCube";
@@ -17,6 +19,7 @@ const App = () => {
   const ref = useRef(null);
 
   const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
+  const [scrambleRotationCounter, setScrambleRotationCounter] = useState(0);
 
   useEffect(() => {
     ref.current.focus();
@@ -27,12 +30,16 @@ const App = () => {
   const [isClockwise, setIsClockwise] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
   
-  const panelButtonClickHandler = (degree, axis, axisLevel) => {
+  const setRotationParams = (degree, axis, axisLevel) => {
+    setRotationAxis(axis);
+    setRotationAxisLevel(axisLevel);
+    setIsClockwise(degree < 0);
+    setIsRotating(true);
+  };
+  
+  const panelButtonClickHandler = (...params) => {
     if (!isRotating) {
-      setRotationAxis(axis);
-      setRotationAxisLevel(axisLevel);
-      setIsClockwise(degree < 0);
-      setIsRotating(true);
+      setRotationParams(...params);
     };
   };
 
@@ -40,15 +47,53 @@ const App = () => {
     const pressedKey = event.code.slice(-1);
     if (Object.keys(rotationButtonsProps).includes(pressedKey)) {
       const degree = !event.shiftKey ? buttonsDegree[pressedKey] : -buttonsDegree[pressedKey];
-      panelButtonClickHandler(degree, rotationButtonsProps[pressedKey].axis, rotationButtonsProps[pressedKey].axisLevel);
+      if (!isRotating) {
+        setRotationParams(degree, rotationButtonsProps[pressedKey].axis, rotationButtonsProps[pressedKey].axisLevel);
+      };
     };
   };
 
+  const onLastRotatingHandler = () => {
+    setIsRotating(false);
+    
+    if (scrambleRotationCounter !== 0) {
+      scrambleRubiksCube();
+      setScrambleRotationCounter(scrambleRotationCounter - 1);
+    };
+  };
+
+  const getScrambleRandomParams = () => {
+    const randomAxisNumber = Math.floor(Math.random() * 3);
+    const axisArray = ["x", "y", "z"];
+    const randomAxis = axisArray[randomAxisNumber];
+    const randomAxisLevel = Math.floor(Math.random() * 3);
+    const randomDegreeNumber = Math.floor(Math.random() * 2);
+    const degree = randomDegreeNumber === 0 ? -90 : 90;
+    return [degree, randomAxis, randomAxisLevel];
+  };
+
+  const scrambleButtonClickHandler = () => {
+    if (!isRotating) {
+      scrambleRubiksCube();
+      setScrambleRotationCounter(19);
+    };
+  };
+
+  const scrambleRubiksCube = () => setRotationParams(...getScrambleRandomParams());
+
   return (
     <div className="container" tabIndex={0} onKeyUp={keyUpHandler} ref={ref}>
-      <LabelsSwitch 
-        onLabelSwitch={(checked) => setIsLabelSwitchChecked(checked)}
-      />
+      <div className="top-button-panel">
+        <Button 
+          type="primary"
+          onClick={scrambleButtonClickHandler}
+        >
+          Scramble
+        </Button>
+        <LabelsSwitch 
+          onLabelSwitch={(checked) => setIsLabelSwitchChecked(checked)}
+        />
+      </div>
       <div className="rubiks-cube-container">
         <Canvas
           dpr={Math.max(window.devicePixelRatio, 2)} 
@@ -60,7 +105,7 @@ const App = () => {
             rotationAxisLevel={rotationAxisLevel}
             isClockwise={isClockwise}
             isRotating={isRotating}
-            onLastRotating={() => setIsRotating(false)}
+            onLastRotating={onLastRotatingHandler}
           />
           <Labels 
             isVisible={isLabelSwitchChecked}

@@ -47,7 +47,7 @@ const App = () => {
   return (
     <div className="container" tabIndex={0} onKeyUp={keyUpHandler} ref={ref}>
       <LabelsSwitch 
-        onLabelSwitch={(checked) => setIsLabelSwitchChecked(checked)}
+        onLabelSwitch={setIsLabelSwitchChecked}
       />
       <div className="rubiks-cube-container">
         <Canvas

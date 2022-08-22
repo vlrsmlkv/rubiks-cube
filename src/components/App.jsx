@@ -15,17 +15,16 @@ const App = () => {
 
   const cubesRef = useRef(create3DArray(3));
   const ref = useRef(null);
-
-  const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
-
+  
   useEffect(() => {
     ref.current.focus();
   }, []);
-
+  
   const [rotationAxis, setRotationAxis] = useState(null);
   const [rotationAxisLevel, setRotationAxisLevel] = useState(null);
   const [isClockwise, setIsClockwise] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
+  const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
   
   const panelButtonClickHandler = (degree, axis, axisLevel) => {
     if (!isRotating) {

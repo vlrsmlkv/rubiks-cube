@@ -35,4 +35,4 @@ const ButtonPanel = ({ onButtonClick }) => {
   );
 };
 
-export { ButtonPanel };
+export default ButtonPanel;

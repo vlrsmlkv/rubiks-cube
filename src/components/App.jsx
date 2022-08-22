@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { Button } from 'antd';
+import { Button, Progress, message } from 'antd';
+import { SmileOutlined } from "@ant-design/icons";
 
 import { Canvas } from "@react-three/fiber";
 
 import RubiksCube from "./RubiksCube";
-import { ButtonPanel } from "./ButtonPanel";
+import ButtonPanel from "./ButtonPanel";
 import Labels from "./Labels";
 import LabelsSwitch from "./LabelsSwitch";
 
@@ -58,6 +59,14 @@ const App = () => {
     if (scrambleRotationCounter !== 0) {
       scrambleRubiksCube();
       setScrambleRotationCounter(scrambleRotationCounter - 1);
+      
+      if (scrambleRotationCounter === 1) {
+        message.success({
+          content: "Rubik's Cube is scrambled!",
+          duration: 2,
+          icon: <SmileOutlined />
+        })
+      };
     };
   };
 
@@ -73,14 +82,26 @@ const App = () => {
   return (
     <div className="container" tabIndex={0} onKeyUp={keyUpHandler} ref={ref}>
       <div className="top-button-panel">
-        <Button 
-          type="primary"
-          onClick={scrambleButtonClickHandler}
-        >
-          Scramble
-        </Button>
+        <div className="scramble-panel">
+          <Button 
+            type="primary"
+            onClick={scrambleButtonClickHandler}
+          >
+            Scramble
+          </Button>
+          {(scrambleRotationCounter > 0) && <Progress
+            type="circle"
+            width={25}
+            strokeColor={{
+              '0%': '#108ee9',
+              '100%': '#87d068',
+            }}
+            showInfo={false}
+            percent={100 - Number.parseInt(scrambleRotationCounter * 100 / 19)}
+          />}
+        </div>
         <LabelsSwitch 
-          onLabelSwitch={(checked) => setIsLabelSwitchChecked(checked)}
+          onLabelSwitch={setIsLabelSwitchChecked}
         />
       </div>
       <div className="rubiks-cube-container">

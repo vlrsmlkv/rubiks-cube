@@ -17,6 +17,13 @@ body {
         justify-content: space-evenly;
         height: 15%;
 
+        .scramble-panel {
+          display: flex;
+          width: 130px;
+          justify-content: space-between;
+          align-items: center;
+        }
+
         .label-toggler {
           font-size: 15px;
           display: flex;

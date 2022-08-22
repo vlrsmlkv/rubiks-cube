@@ -10,9 +10,18 @@ body {
       &:focus {
         outline: none;
       }
+
+      .label-toggler {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 10%;
+      }
       
       .rubiks-cube-container {
-        height: 65%;
+        height: 55%;
       } 
   
       .button-panel {

@@ -4,6 +4,8 @@ import { Canvas } from "@react-three/fiber";
 
 import RubiksCube from "./RubiksCube";
 import { ButtonPanel } from "./ButtonPanel";
+import Labels from "./Labels";
+import LabelsSwitch from "./LabelsSwitch";
 
 import { create3DArray } from "../utils";
 
@@ -13,15 +15,16 @@ const App = () => {
 
   const cubesRef = useRef(create3DArray(3));
   const ref = useRef(null);
-
+  
   useEffect(() => {
     ref.current.focus();
   }, []);
-
+  
   const [rotationAxis, setRotationAxis] = useState(null);
   const [rotationAxisLevel, setRotationAxisLevel] = useState(null);
   const [isClockwise, setIsClockwise] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
+  const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
   
   const panelButtonClickHandler = (degree, axis, axisLevel) => {
     if (!isRotating) {
@@ -42,10 +45,13 @@ const App = () => {
 
   return (
     <div className="container" tabIndex={0} onKeyUp={keyUpHandler} ref={ref}>
+      <LabelsSwitch 
+        onLabelSwitch={setIsLabelSwitchChecked}
+      />
       <div className="rubiks-cube-container">
         <Canvas
           dpr={Math.max(window.devicePixelRatio, 2)} 
-          camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 0, 15], zoom: 3}}
+          camera={{ fov: 75, near: 0.1, far: 1000, position: [-8, 5, 15], zoom: 3.5}}
         >
           <RubiksCube
             cubesRef={cubesRef}
@@ -54,6 +60,9 @@ const App = () => {
             isClockwise={isClockwise}
             isRotating={isRotating}
             onLastRotating={() => setIsRotating(false)}
+          />
+          <Labels 
+            isVisible={isLabelSwitchChecked}
           />
         </Canvas>
       </div>

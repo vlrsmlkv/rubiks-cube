@@ -9,7 +9,7 @@ import { ButtonPanel } from "./ButtonPanel";
 import Labels from "./Labels";
 import LabelsSwitch from "./LabelsSwitch";
 
-import { create3DArray } from "../../utils";
+import { create3DArray, getScrambleRandomParams } from "../../utils";
 
 import { buttonsDegree, rotationButtonsProps } from "../../consts";
 
@@ -18,17 +18,16 @@ const App = () => {
   const cubesRef = useRef(create3DArray(3));
   const ref = useRef(null);
 
-  const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
-  const [scrambleRotationCounter, setScrambleRotationCounter] = useState(0);
-
   useEffect(() => {
     ref.current.focus();
   }, []);
-
+  
   const [rotationAxis, setRotationAxis] = useState(null);
   const [rotationAxisLevel, setRotationAxisLevel] = useState(null);
   const [isClockwise, setIsClockwise] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
+  const [isLabelSwitchChecked, setIsLabelSwitchChecked] = useState(false);
+  const [scrambleRotationCounter, setScrambleRotationCounter] = useState(0);
   
   const setRotationParams = (degree, axis, axisLevel) => {
     setRotationAxis(axis);
@@ -60,16 +59,6 @@ const App = () => {
       scrambleRubiksCube();
       setScrambleRotationCounter(scrambleRotationCounter - 1);
     };
-  };
-
-  const getScrambleRandomParams = () => {
-    const randomAxisNumber = Math.floor(Math.random() * 3);
-    const axisArray = ["x", "y", "z"];
-    const randomAxis = axisArray[randomAxisNumber];
-    const randomAxisLevel = Math.floor(Math.random() * 3);
-    const randomDegreeNumber = Math.floor(Math.random() * 2);
-    const degree = randomDegreeNumber === 0 ? -90 : 90;
-    return [degree, randomAxis, randomAxisLevel];
   };
 
   const scrambleButtonClickHandler = () => {

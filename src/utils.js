@@ -77,3 +77,13 @@ export const getCurrentAngle = (cubesRef, axis, axisLevel) => {
 };
 
 export const isReversedMoveCoordinates = (axis, isClockwise) => (axis === "y") ? !isClockwise : isClockwise;
+
+export const getScrambleRandomParams = () => {
+  const randomAxisNumber = Math.floor(Math.random() * 3);
+  const axisArray = ["x", "y", "z"];
+  const randomAxis = axisArray[randomAxisNumber];
+  const randomAxisLevel = Math.floor(Math.random() * 3);
+  const randomDegreeNumber = Math.floor(Math.random() * 2);
+  const degree = randomDegreeNumber === 0 ? -90 : 90;
+  return [degree, randomAxis, randomAxisLevel];
+};

@@ -7,7 +7,7 @@ import { rotationButtonsProps, buttonsDegree } from "../consts";
 const ButtonPanel = ({ onButtonClick }) => {
   
   return (
-    <div className="button-panel">
+    <div className="control-button-panel">
       <div className="clockwise-rotation-button-panel">
         {Object.keys(rotationButtonsProps).map(buttonName => (
           <Button
@@ -35,4 +35,4 @@ const ButtonPanel = ({ onButtonClick }) => {
   );
 };
 
-export { ButtonPanel };
+export default ButtonPanel;

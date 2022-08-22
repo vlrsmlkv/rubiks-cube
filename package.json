@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/vlrsmlkv/rubiks-cube#readme",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@react-three/drei": "^9.4.3",
     "@react-three/fiber": "^7.0.24",
     "antd": "^4.20.2",

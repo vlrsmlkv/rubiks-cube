@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button } from 'antd';
 
-import { rotationButtonsProps, buttonsDegree } from "../../consts";
+import { rotationButtonsProps, buttonsDegree } from "../consts";
 
 const ButtonPanel = ({ onButtonClick }) => {
   

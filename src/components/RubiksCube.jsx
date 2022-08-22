@@ -5,9 +5,9 @@ import { Quaternion, Vector3 } from "three";
 
 import Cube from "./Cube";
 
-import { getFaceCoordinates, getMoveCoordinates, transform3DArray, isReversedMoveCoordinates } from "../../utils";
+import { getFaceCoordinates, getMoveCoordinates, transform3DArray, isReversedMoveCoordinates } from "../utils";
 
-import { moveUnit, rotationAngleUnit, cubesPositions } from "../../consts";
+import { moveUnit, rotationAngleUnit, cubesPositions } from "../consts";
 
 const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, isRotating, onLastRotating }) => {
 

@@ -10,9 +10,9 @@ import ButtonPanel from "./ButtonPanel";
 import Labels from "./Labels";
 import LabelsSwitch from "./LabelsSwitch";
 
-import { create3DArray, getScrambleRandomParams } from "../../utils";
+import { create3DArray, getScrambleRandomParams } from "../utils";
 
-import { buttonsDegree, rotationButtonsProps } from "../../consts";
+import { buttonsDegree, rotationButtonsProps } from "../consts";
 
 const App = () => {
 

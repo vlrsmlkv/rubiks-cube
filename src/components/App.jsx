@@ -5,9 +5,9 @@ import { Canvas } from "@react-three/fiber";
 import RubiksCube from "./RubiksCube";
 import { ButtonPanel } from "./ButtonPanel";
 
-import { create3DArray } from "../../utils";
+import { create3DArray } from "../utils";
 
-import { buttonsDegree, rotationButtonsProps } from "../../consts";
+import { buttonsDegree, rotationButtonsProps } from "../consts";
 
 const App = () => {
 

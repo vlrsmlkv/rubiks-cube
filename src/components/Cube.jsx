@@ -4,9 +4,11 @@ import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { colors } from "../consts";
 
+import sourceTexture from "../resources/texture.svg";
+
 const Cube = ({ position, index, cubesRefHandler }) => {
 
-  const [texture] = useLoader(TextureLoader, ["/resources/texture.svg"]);
+  const [texture] = useLoader(TextureLoader, [sourceTexture]);
   
   return (
     <mesh

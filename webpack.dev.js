@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -7,12 +7,12 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.jsx'),
+  entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[contenthash].js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   mode: "development",
   module: {
     rules: [
@@ -35,7 +35,7 @@ module.exports = {
             }
           }, 
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true,
             }
@@ -44,12 +44,12 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        type: 'asset/inline',
+        type: "asset/inline",
       },
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
   plugins: [htmlPlugin],
 };

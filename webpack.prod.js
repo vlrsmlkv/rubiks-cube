@@ -11,7 +11,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = {
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
   },
   mode: "production",

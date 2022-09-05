@@ -24,7 +24,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         use: [
           "style-loader",
           {
@@ -33,13 +33,16 @@ module.exports = {
               sourceMap: true,
               importLoaders: 1,
             }
-          }, 
+          },
           {
-            loader: "sass-loader",
+            loader: "less-loader",
             options: {
               sourceMap: true,
-            }
-          }
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
         ]
       },
       {

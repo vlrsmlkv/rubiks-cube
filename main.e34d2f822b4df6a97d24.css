@@ -26001,11 +26001,11 @@ body #root .app:focus {
   outline: none;
 }
 body #root .app canvas {
-  min-height: 450px;
+  min-height: 32em;
 }
 @media (max-width: 576px) {
   body #root .app canvas {
-    min-height: 350px;
+    min-height: 25em;
   }
 }
 .pt-2 {
@@ -26025,13 +26025,13 @@ body #root .app canvas {
   }
 }
 .square-shape {
-  width: 45px;
-  height: 45px;
+  width: 2.85em;
+  height: 2.85em;
 }
 @media (max-width: 576px) {
   .square-shape {
-    width: 32px;
-    height: 32px;
+    width: 2em;
+    height: 2em;
   }
 }
 .fixed {
@@ -26041,6 +26041,11 @@ body #root .app canvas {
   width: 100%;
 }
 .fixed.fixed--bottom {
-  bottom: 80px;
+  bottom: 6em;
+}
+@media (min-width: 390px) and (max-width: 420px) {
+  .fixed.fixed--bottom {
+    bottom: 3em;
+  }
 }
 

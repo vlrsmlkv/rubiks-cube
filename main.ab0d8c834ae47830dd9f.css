@@ -26016,7 +26016,7 @@ body #root .app canvas {
 }
 @media (min-width: 390px) and (max-width: 420px) {
   .mt-3 {
-    margin-top: 10em;
+    margin-top: 9em;
   }
 }
 @media (min-width: 760px) and (max-width: 920px) {

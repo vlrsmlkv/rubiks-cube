@@ -1,13 +1,17 @@
 import React from "react";
-import { Switch } from "antd";
+import { Switch, Row, Col } from "antd";
 
 const LabelsSwitch = ({ onLabelSwitch }) => (
-  <div className="label-toggler">
-    <span>Labels</span>
-    <Switch
-      onChange={onLabelSwitch}
-    />
-  </div>
+  <Row gutter={9}>
+    <Col>
+      <span>Labels</span>
+    </Col>
+    <Col>
+      <Switch
+        onChange={onLabelSwitch}
+      />
+    </Col>
+  </Row>
 );
 
 export default LabelsSwitch;

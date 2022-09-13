@@ -18,7 +18,7 @@ const Cube = ({ position, index, cubesRefHandler }) => {
       }}
     >
       <mesh position={position}>
-        <boxGeometry args={[0.98, 0.98, 0.98]} />
+        <boxGeometry args={[1, 1, 1]} />
         {colors.map((faceColor, i) =>
           <meshBasicMaterial 
             color={faceColor} 

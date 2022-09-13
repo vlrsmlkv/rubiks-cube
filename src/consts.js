@@ -100,3 +100,30 @@ export const cubesPositions = create3DArray(3)
       ))
     )
   );
+
+export const appLayout = {
+  xs:{
+    span: 22,
+    offset: 1,
+  },
+  sm:{
+    span: 20,
+    offset: 2,
+  },
+  md:{
+    span: 20,
+    offset: 2,
+  },
+  lg:{
+    span: 18,
+    offset: 3,
+  },
+  xl:{
+    span: 14,
+    offset: 5,
+  },
+  xxl:{
+    span: 10,
+    offset: 7,
+  },
+};

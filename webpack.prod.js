@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
-  filename: "./index.html"
+  filename: "./index.html",
+  favicon: "./src/resources/favicon.png",
 });
 
 module.exports = {
@@ -25,7 +26,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -34,12 +35,23 @@ module.exports = {
               importLoaders: 1,
             }
           },
-          "sass-loader"
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          }
         ]
       },
       {
         test: /\.svg$/,
         type: "asset/inline",
+      },
+      {
+        test: /\.png$/,
+        type: 'asset/resource'
       },
     ]
   },

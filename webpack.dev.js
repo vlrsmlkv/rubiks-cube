@@ -3,7 +3,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
-  filename: "./index.html"
+  filename: "./index.html",
+  favicon: "./src/resources/favicon.png",
 });
 
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         use: [
           "style-loader",
           {
@@ -33,18 +34,25 @@ module.exports = {
               sourceMap: true,
               importLoaders: 1,
             }
-          }, 
+          },
           {
-            loader: "sass-loader",
+            loader: "less-loader",
             options: {
               sourceMap: true,
-            }
-          }
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
         ]
       },
       {
         test: /\.svg$/,
         type: "asset/inline",
+      },
+      {
+        test: /\.png$/,
+        type: 'asset/resource'
       },
     ]
   },

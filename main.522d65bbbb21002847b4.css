@@ -25988,7 +25988,6 @@ div.ant-typography-edit-content.ant-typography-rtl {
   padding: 0;
 }
 body {
-  height: 100%;
   background-color: #f5f5f5;
 }
 body #root {
@@ -26000,29 +25999,11 @@ body #root .app {
 body #root .app:focus {
   outline: none;
 }
-body #root .app canvas {
-  min-height: 32em;
+body #root .app .canvas-container {
+  height: calc(100% - 100px - 4em);
 }
-@media (max-width: 576px) {
-  body #root .app canvas {
-    min-height: 25em;
-  }
-}
-.pt-2 {
-  padding-top: 2em;
-}
-.mt-3 {
-  margin-top: 3em;
-}
-@media (min-width: 390px) and (max-width: 420px) {
-  .mt-3 {
-    margin-top: 9em;
-  }
-}
-@media (min-width: 760px) and (max-width: 920px) {
-  .mt-3 {
-    margin-top: 17em;
-  }
+.pt-3 {
+  padding-top: 3em;
 }
 .square-shape {
   width: 2.85em;
@@ -26041,11 +26022,6 @@ body #root .app canvas {
   width: 100%;
 }
 .fixed.fixed--bottom {
-  bottom: 6em;
-}
-@media (min-width: 390px) and (max-width: 420px) {
-  .fixed.fixed--bottom {
-    bottom: 3em;
-  }
+  bottom: 4em;
 }
 

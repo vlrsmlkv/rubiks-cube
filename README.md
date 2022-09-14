@@ -2,7 +2,6 @@
 
 ## Table of contents:
 * [About](#about-page_with_curl)
-  * [Github pages](#github-pages-octocat)
 * [Stack](#stack-woman_technologist)
 * [Setup](#setup-hammer_and_wrench)
 * [Usage](#usage-moyai)
@@ -12,15 +11,16 @@
 Here I made the app for rubik's cube simulation.
 To solve it you need to be familiar with Rubik's Cube move notations. If you're not, you can simply google it or use [this source](http://www.rubiksplace.com/move-notations/).
 
-### Github pages :octocat:
+### Github pages (Demo) :octocat:
 
 The rubik's cube app is deployed on github pages. Please follow the link below: 
 
 <https://vlrsmlkv.github.io/rubiks-cube/>
 
 ## Stack :woman_technologist:
-- [Webpack](https://webpack.js.org/)
+- [React](https://reactjs.org/)
 - [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [Webpack](https://webpack.js.org/)
 - [Less](https://lesscss.org/)
 - [Ant Design](https://ant.design/)
 
@@ -29,28 +29,15 @@ The rubik's cube app is deployed on github pages. Please follow the link below:
 
 ### To run the project locally:
 
-1. Clone the repo using next command:
-```bash
-git clone https://github.com/vlrsmlkv/rubiks-cube.git
-```
-2. Install dependencies by running 
-``` npm install ```
-or 
-``` yarn install ```
-3. Run command
-``` npm start ```
-or 
-``` yarn start ```
+1. Clone the repo
+2. Install dependencies by running `npm install`
+3. Run command `npm start`
 4. Open http://localhost:8080/
 
 ### To build the project:
 
-1. Run command
-``` npm build ```
-or
-``` yarn build ```
-2. Wait until the "build" folder is created
-3. Run "index.html" file from "build" folder using any browser you like
+1. Run command `npm build`
+2. The bundle will be located in `/build` folder
 
 
 ## Usage :moyai:
@@ -88,6 +75,4 @@ You can use the special button to scramble your rubik's cube repeatedly performi
  ________________________________________________________________________________________________________________________________
 
 Special thanks go to my friend and mentor [Mishanya](https://github.com/OUghTMS/), who helps a lot answering my questions, giving tips and reviewing my PRs.
-<p align="center">
-  <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="200" height="150" />
-</p>
+<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="200" height="150" />

@@ -75,4 +75,5 @@ You can use the special button to scramble your rubik's cube repeatedly performi
  ________________________________________________________________________________________________________________________________
 
 Special thanks go to my friend and mentor [Mishanya](https://github.com/OUghTMS/), who helps a lot answering my questions, giving tips and reviewing my PRs.
+
 <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="200" height="150" />

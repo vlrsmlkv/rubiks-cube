@@ -36,7 +36,7 @@ The rubik's cube app is deployed on github pages. Please follow the link below:
 
 ### To build the project:
 
-1. Run command `npm build`
+1. Run command `npm run build`
 2. The bundle will be located in `/build` folder
 
 

@@ -8,7 +8,7 @@ import { Canvas } from "@react-three/fiber";
 import RubiksCube from "./RubiksCube";
 import ButtonPanel from "./ButtonPanel";
 import Labels from "./Labels";
-import LabelsSwitch from "./LabelsSwitch";
+import SwitchButton from "./SwitchButton";
 import ProcessingButton from "./ProcessingButton";
 
 import { create3DArray, getScrambleRandomParams } from "../utils";
@@ -93,8 +93,9 @@ const App = () => {
               />
             </Col>
             <Col>
-              <LabelsSwitch 
-                onLabelSwitch={setIsLabelSwitchChecked}
+              <SwitchButton 
+                name="Labels"
+                onSwitch={setIsLabelSwitchChecked}
               />
             </Col>
           </Row>

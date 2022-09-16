@@ -5740,8 +5740,10 @@ a.ant-btn-sm {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-picker-input > input-disabled:hover {
   border-color: #d9d9d9;
@@ -5752,8 +5754,10 @@ a.ant-btn-sm {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-picker-input > input[disabled]:hover {
   border-color: #d9d9d9;
@@ -13568,8 +13572,10 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-affix-wrapper-disabled:hover {
   border-color: #d9d9d9;
@@ -13580,8 +13586,10 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-affix-wrapper[disabled]:hover {
   border-color: #d9d9d9;
@@ -13835,8 +13843,10 @@ textarea.ant-input-affix-wrapper {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-disabled:hover {
   border-color: #d9d9d9;
@@ -13847,8 +13857,10 @@ textarea.ant-input-affix-wrapper {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input[disabled]:hover {
   border-color: #d9d9d9;
@@ -14410,8 +14422,10 @@ textarea.ant-input {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-number-affix-wrapper-disabled:hover {
   border-color: #d9d9d9;
@@ -14422,8 +14436,10 @@ textarea.ant-input {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-number-affix-wrapper[disabled]:hover {
   border-color: #d9d9d9;
@@ -14640,8 +14656,10 @@ textarea.ant-input-number-affix-wrapper {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-number-disabled:hover {
   border-color: #d9d9d9;
@@ -14652,8 +14670,10 @@ textarea.ant-input-number-affix-wrapper {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-number[disabled]:hover {
   border-color: #d9d9d9;
@@ -15090,8 +15110,10 @@ textarea.ant-input-number {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-input-number-disabled:hover {
   border-color: #d9d9d9;
@@ -15775,8 +15797,10 @@ textarea.ant-input-number {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-mentions-disabled:hover {
   border-color: #d9d9d9;
@@ -15787,8 +15811,10 @@ textarea.ant-input-number {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-mentions[disabled]:hover {
   border-color: #d9d9d9;
@@ -15827,8 +15853,10 @@ textarea.ant-mentions {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-mentions-disabled > textarea:hover {
   border-color: #d9d9d9;
@@ -17937,8 +17965,10 @@ textarea.ant-mentions {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-pagination-options-quick-jumper input-disabled:hover {
   border-color: #d9d9d9;
@@ -17949,8 +17979,10 @@ textarea.ant-mentions {
   background-color: #f5f5f5;
   border-color: #d9d9d9;
   box-shadow: none;
-  cursor: not-allowed;
   opacity: 1;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 .ant-pagination-options-quick-jumper input[disabled]:hover {
   border-color: #d9d9d9;
@@ -26023,5 +26055,10 @@ body #root .app .canvas-container {
 }
 .fixed.fixed--bottom {
   bottom: 4em;
+}
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 

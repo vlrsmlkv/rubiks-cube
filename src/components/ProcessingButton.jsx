@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Progress, Row, Col } from "antd";
 
-const ProcessingButton = ({ name, onButtonClick, percent }) => (
+const ProcessingButton = ({ name, onButtonClick, percent, disabled }) => (
   <Row gutter={9} align="middle">
     <Col>
       <Button
+        className={disabled ? "disabled" : ""}
         type="primary"
         onClick={onButtonClick}
       >

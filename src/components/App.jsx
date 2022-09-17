@@ -32,10 +32,12 @@ const App = () => {
   const [scrambleRotationCounter, setScrambleRotationCounter] = useState(0);
   
   const setRotationParams = (degree, axis, axisLevel) => {
-    setRotationAxis(axis);
-    setRotationAxisLevel(axisLevel);
-    setIsClockwise(degree < 0);
-    setIsRotating(true);
+    setTimeout(() => {
+      setRotationAxis(axis);
+      setRotationAxisLevel(axisLevel);
+      setIsClockwise(degree < 0);
+      setIsRotating(true);
+    });
   };
   
   const panelButtonClickHandler = (...params) => {
@@ -90,6 +92,7 @@ const App = () => {
                 name="Scramble"
                 onButtonClick={scrambleButtonClickHandler}
                 percent={100 - Number.parseInt(scrambleRotationCounter * 100 / 19)}
+                disabled={scrambleRotationCounter !== 0 || isRotating}
               />
             </Col>
             <Col>
@@ -126,7 +129,10 @@ const App = () => {
           className="fixed fixed--bottom fixed--full-width"
           {...appLayout}
         >
-          <ButtonPanel onButtonClick={panelButtonClickHandler}/>
+          <ButtonPanel 
+            onButtonClick={panelButtonClickHandler}
+            disabled={scrambleRotationCounter !== 0 || isRotating}
+          />
         </Col>
       </Row>
     </div>

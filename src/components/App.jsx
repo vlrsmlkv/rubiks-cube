@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import { Canvas } from "@react-three/fiber";
 import { message, Row, Col } from 'antd';
 import { SmileOutlined } from "@ant-design/icons";
-
-import { Canvas } from "@react-three/fiber";
 
 import RubiksCube from "./RubiksCube";
 import ButtonPanel from "./ButtonPanel";
 import Labels from "./Labels";
-import LabelsSwitch from "./LabelsSwitch";
+import SwitchButton from "./SwitchButton";
 import ProcessingButton from "./ProcessingButton";
 
 import { create3DArray, getScrambleRandomParams } from "../utils";
@@ -32,10 +30,12 @@ const App = () => {
   const [scrambleRotationCounter, setScrambleRotationCounter] = useState(0);
   
   const setRotationParams = (degree, axis, axisLevel) => {
-    setRotationAxis(axis);
-    setRotationAxisLevel(axisLevel);
-    setIsClockwise(degree < 0);
-    setIsRotating(true);
+    setTimeout(() => {
+      setRotationAxis(axis);
+      setRotationAxisLevel(axisLevel);
+      setIsClockwise(degree < 0);
+      setIsRotating(true);
+    });
   };
   
   const panelButtonClickHandler = (...params) => {
@@ -90,11 +90,13 @@ const App = () => {
                 name="Scramble"
                 onButtonClick={scrambleButtonClickHandler}
                 percent={100 - Number.parseInt(scrambleRotationCounter * 100 / 19)}
+                disabled={scrambleRotationCounter !== 0 || isRotating}
               />
             </Col>
             <Col>
-              <LabelsSwitch 
-                onLabelSwitch={setIsLabelSwitchChecked}
+              <SwitchButton 
+                name="Labels"
+                onSwitch={setIsLabelSwitchChecked}
               />
             </Col>
           </Row>
@@ -125,7 +127,10 @@ const App = () => {
           className="fixed fixed--bottom fixed--full-width"
           {...appLayout}
         >
-          <ButtonPanel onButtonClick={panelButtonClickHandler}/>
+          <ButtonPanel 
+            onButtonClick={panelButtonClickHandler}
+            disabled={scrambleRotationCounter !== 0 || isRotating}
+          />
         </Col>
       </Row>
     </div>

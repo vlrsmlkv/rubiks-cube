@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Quaternion, Vector3 } from "three";
@@ -9,9 +9,14 @@ import { getFaceCoordinates, getMoveCoordinates, transform3DArray, isReversedMov
 
 import { moveUnit, rotationAngleUnit, cubesPositions } from "../consts";
 
-const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, isRotating, onLastRotating }) => {
+let rotationCounter = 0;
+let isRotatingSemaphore = false;
 
-  const [rotationCounter, setRotationCounter] = useState(0);
+const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, isRotating, onLastRotating }) => {
+  
+  useLayoutEffect(() => {
+    isRotatingSemaphore = isRotating;
+  }, [isRotating]);
   
   const cubesRefHandler = (state) => {
     if (!cubesRef.current[state.position.z][state.position.y][state.position.x]) {
@@ -37,7 +42,7 @@ const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, is
       };
     };
     
-    setRotationCounter(rotationCounter + 1);
+    rotationCounter++;
   };
   
   const alignCubes = (cubesRef, axis, axisLevel, alignValue) => {
@@ -55,20 +60,20 @@ const RubiksCube = ({ cubesRef, isClockwise, rotationAxis, rotationAxisLevel, is
   };
 
   useFrame(() => {
-
-    const moveValue = isClockwise ? -moveUnit : moveUnit;
-    const rotationAngleValue = isClockwise ? -rotationAngleUnit : rotationAngleUnit;
-
-    if (isRotating && !isLastRotation(rotationAngleValue, rotationCounter, moveValue)) {
-      rotate(cubesRef, moveValue, rotationAxis, rotationAxisLevel);
-    };
-
-    if (isLastRotation(rotationAngleValue, rotationCounter, moveValue)) {
-      const alignValue = rotationAngleValue - rotationCounter * moveValue;
-      alignCubes(cubesRef, rotationAxis, rotationAxisLevel, alignValue);
-      setRotationCounter(0);
-      resetCubesRefAfterFullRotation();
-      onLastRotating();
+    if (isRotating && isRotatingSemaphore) {
+      const moveValue = isClockwise ? -moveUnit : moveUnit;
+      const rotationAngleValue = isClockwise ? -rotationAngleUnit : rotationAngleUnit;
+      
+      if (isLastRotation(rotationAngleValue, rotationCounter, moveValue)) {
+        const alignValue = rotationAngleValue - rotationCounter * moveValue;
+        alignCubes(cubesRef, rotationAxis, rotationAxisLevel, alignValue);
+        rotationCounter = 0;
+        isRotatingSemaphore = false;
+        resetCubesRefAfterFullRotation();
+        onLastRotating();
+      } else {
+        rotate(cubesRef, moveValue, rotationAxis, rotationAxisLevel);
+      };
     };
   });
 

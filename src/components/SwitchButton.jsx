@@ -1,17 +1,17 @@
 import React from "react";
 import { Switch, Row, Col } from "antd";
 
-const LabelsSwitch = ({ onLabelSwitch }) => (
+const SwitchButton = ({ name, onSwitch }) => (
   <Row gutter={9}>
     <Col>
-      <span>Labels</span>
+      <span>{name}</span>
     </Col>
     <Col>
       <Switch
-        onChange={onLabelSwitch}
+        onChange={onSwitch}
       />
     </Col>
   </Row>
 );
 
-export default LabelsSwitch;
+export default SwitchButton;

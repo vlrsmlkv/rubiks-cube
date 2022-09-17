@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import { Canvas } from "@react-three/fiber";
 import { message, Row, Col } from 'antd';
 import { SmileOutlined } from "@ant-design/icons";
-
-import { Canvas } from "@react-three/fiber";
 
 import RubiksCube from "./RubiksCube";
 import ButtonPanel from "./ButtonPanel";

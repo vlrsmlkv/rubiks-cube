@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Button, Row, Col } from 'antd';
 
 import { rotationButtonsProps, buttonsDegree } from "../consts";
